@@ -38,8 +38,8 @@ do
 done
 
 #runs yolo processing on images in paths.txt
-/scratch2/${USER}/DeepROAD/CU-Darknet/darknet yolo test cfg/yolo.cfg weights/yolo.weights < "$file"
-#/scratch2/${USER}/DeepROAD/CU-Darknet/darknet classifier predict cfg/imagenet1k.dataset cfg/extraction.cfg weights/extraction.weights < paths.txt
+/scratch2/${USER}/Darknet/CU-Darknet/darknet yolo test cfg/yolo.cfg weights/yolo.weights < "$file"
+#/scratch2/${USER}/Darknet/CU-Darknet/darknet classifier predict cfg/imagenet1k.dataset cfg/extraction.cfg weights/extraction.weights < paths.txt
 echo "done"
 
 #makes a directory in path of images and moves them to that directory
