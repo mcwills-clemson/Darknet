@@ -1,5 +1,5 @@
 # DeepROAD
-This project houses all scripts and code necessary for use of the DeepROAD Suite (in development).
+This project houses all scripts and code necessary for use of the CU-Darknet Suite (in development).
 
 ## Darknet on Palmetto Cluster
 
