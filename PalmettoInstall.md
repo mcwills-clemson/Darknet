@@ -1,14 +1,14 @@
 # Install Darknet on Palmetto
 
-Clone the entire DeepROAD repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including scripts to download weights.  cuDNN needs to be cloned seperately into the correct location to work with the Makefile.
+Clone the entire Darknet repository into your scratch2 directory on Palmetto.  This includes all the necessary scripts to start using Darknet, including scripts to download weights.  cuDNN needs to be cloned seperately into the correct location to work with the Makefile.
 
-	# Clone DeepROAD to scratch2
-	git clone --recursive https://github.com/eweill/DeepROAD.git /scratch2/${USER}/DeepROAD
+	# Clone Darknet to scratch2
+	git clone --recursive https://github.com/CUFCTDLBD/Darknet.git /scratch2/${USER}/Darknet
 
 Next we need to create an interactive job on a node with a GPGPU (in this case a K40).
 
 	# Create interactive session with provided script (modifiable if necessary).
-	/scratch2/${USER}/DeepROAD/bin/k40
+	/scratch2/${USER}/Darknet/bin/k40
 
 After successfully invoking an interactive session on Palmetto, set up the proper paths and environment variables for YOLO (including CUDA, OpenCV, FFMPEG, and more).  The `yolo` script inside the cloned repository will set up all path variables and environment variables
 	
@@ -17,8 +17,8 @@ After successfully invoking an interactive session on Palmetto, set up the prope
 	### Should return 'No Modulefiles Currently Loaded.'
 
 	# Source the `yolo` script to set all env and path variables.
-    source /scratch2/${USER}/DeepROAD/bin/modules add
-	source /scratch2/${USER}/DeepROAD/bin/setEnv palmetto
+    source /scratch2/${USER}/Darknet/bin/modules add
+	source /scratch2/${USER}/Darknet/bin/setEnv palmetto
 
 	# See that all modules are loaded correctly
 	module list
@@ -32,7 +32,7 @@ We can now start to build darknet (with the provided modified Makefile).  We wan
 	
 	# Copy the Palmetto Makefile, make the darknet executable and other object files needed,
 	# and return to original directory.
-	cd /scratch2/${USER}/DeepROAD/CU-Darknet; cp INSTALL/Makefile.palmetto Makefile; make; cd -
+	cd /scratch2/${USER}/Darknet/CU-Darknet; cp INSTALL/Makefile.palmetto Makefile; make; cd -
 
 If there are no errors, it should have compiled correctly.  Now try running darknet.
 
@@ -40,9 +40,9 @@ If there are no errors, it should have compiled correctly.  Now try running dark
 	./darknet
 
 	# If you are in a directory without the executable
-	/scratch2/${USER}/DeepROAD/CU-Darknet/darknet
+	/scratch2/${USER}/Darknet/CU-Darknet/darknet
 
 	# This is the output that will appear if installed correctly:
 	usage: ./darknet <function>
 	OR
-	usage: /scratch2/${USER}/DeepROAD/CU-Darknet/darknet <function>
+	usage: /scratch2/${USER}/Darknet/CU-Darknet/darknet <function>
