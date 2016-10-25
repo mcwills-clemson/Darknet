@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$1" == "palmetto" ]; then
+	echo "Setting all environment variables for Palmetto."
+    
+	# Export environment variables
+	DEEP_ROAD=/scratch2/${USER}/DeepROAD
+	export PATH=${PATH}:${DEEP_ROAD}/cuDNNv5.1_CUDAv7.5/include/:${DEEP_ROAD}/bin/
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${DEEP_ROAD}/cuDNNv5.1_CUDAv7.5/lib64/
+    
+elif [ "$1" == "jetson" ] || [ "$1" == "linux" ]; then
+    echo "Setting all environment variables for Linux/Jetson TX1"
+    DEEP_ROAD=/home/${USER}/Software/DeepROAD
+    export PATH=${PATH}:/usr/local/cuda/include:${DEEP_ROAD}/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+
+else
+    echo "Unrecognized command line arguments."
+    
+fi
