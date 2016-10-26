@@ -5,7 +5,7 @@
 #PBS -e /dev/null
 #PBS -o /dev/null
 
-cd /scratch2/${USER}/DeepROAD/CU-Darknet/
+cd /scratch2/${USER}/Darknet/CU-Darknet/
 source ../scripts/yolo
 
 ./darknet yolo train cfg/yolo.train.cfg &> log.txt
